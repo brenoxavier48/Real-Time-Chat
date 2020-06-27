@@ -1,0 +1,6 @@
+.chat-page{
+    width: 75%;
+    height: 75%;
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+}

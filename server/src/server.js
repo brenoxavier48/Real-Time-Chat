@@ -14,8 +14,8 @@ io.on ('connection', socket => {
     })
 })
 
-io.on ('disconnection', socket => {
-    socket.broadcast.emit ('user-disconnect', users[socket.id])
+io.on ('disconnect', socket => {
+    socket.broadcast.emit ('user-disconnected', users[socket.id])
     delete users[socket.id]
 })
 
