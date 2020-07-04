@@ -3,14 +3,13 @@ const io = require('socket.io')(3333);
 const users = {}
 
 io.on ('connection', socket => {
-    console.log('connect')
-    socket.on ('new-user', info => {
-        users[socket.id] = info.user
-        socket.broadcast.emit ('new-user', info)
+    socket.on ('new-user', data => {
+        users[socket.id] = data.user
+        socket.broadcast.emit ('new-user', data)
     }) 
 
-    socket.on ('chat-message', info => {
-        socket.broadcast.emit ('chat-message', info)
+    socket.on ('chat-message', data => {
+        socket.broadcast.emit ('chat-message', data)
     })
 })
 

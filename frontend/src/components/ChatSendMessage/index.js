@@ -6,25 +6,29 @@ const ChatSendMessage = (props) => {
 
     const [ inputValue, setInputValue ] = useState('')
 
-    const handleChange = ( event ) => {
-        setInputValue ( event.target.value )
+    const handleChange = event => setInputValue ( event.target.value )
+
+    const handleSubmit =  event => {
+        event.preventDefault()
+
+        if ( inputValue ) {
+            props.send ( inputValue ) 
+            setInputValue('') 
+        }
     }
 
     return(
-        <div className="sendMessage__container">
+        <form className="sendMessage__form" onSubmit={ handleSubmit }>
             <input 
                 type="text" 
                 className="sendMessage__input"
                 value={ inputValue }
-                onChange={handleChange}
+                onChange={ handleChange }
             />
-            <button 
-                className="sendMessage__button"
-                onClick={ () => { props.send ( inputValue ); setInputValue('') }}
-            >
+            <button className="sendMessage__button">
                 <FaArrowRight/>
             </button>
-        </div>
+        </form>
     )
 }
 

@@ -17,7 +17,8 @@
     max-width: 60%;
     background-color: #d4ecec;
     box-shadow: -5px 5px 3px 0px rgba(0, 0, 0, 0.12);
-    border-top-left-radius: 5px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     border-right: 8px solid #9ec3c3;
     border-bottom: 8px solid #d4ecec;
 }
@@ -27,7 +28,7 @@
     max-width: 60%;
     background-color: #d4ecec;
     box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.12);
-    border-top-right-radius: 5px;
+    border-top-right-radius: 3px;
     border-left: 8px solid #9ec3c3;
     border-bottom: 8px solid #d4ecec;
 }
