@@ -9,36 +9,44 @@ import socket from '../../connectServer/socket.js'
 const Chat = (props) => {
 
     const [ messages, setMessages ] = useState ( [] )
+    const [ userName, setUserName ] = useState ( '' )
+    
 
     useEffect ( ( ) => {
-        socket.on ( 'new-user', data =>  console.log('new user', data.user) )
-        socket.emit ( 'new-user', { user: 'Duda' } )
+        setUserName( localStorage.getItem ( 'userName' ) )
     }, [])
 
     useEffect ( ( ) => {
+        if ( userName ) socket.emit ( 'new-user', { user: userName, newUser: true } )
+    }, [userName])
+
+    useEffect ( ( ) => {
         socket.on ( 'chat-message', data => setMessages ( [ ...messages, data] ) )
+        socket.on ( 'new-user', data =>  setMessages ( [ ...messages, data] ) )
     }, [messages])
 
     const handleSend = ( value ) => {
         let data = {
-            otherUser: true,
             user: null,
+            newUser: false,
             message: value,
         }
+        
         setMessages ( [ ...messages, data] )
-        socket.emit ( 'chat-message', { user: 'Duda', message: value} )
+        socket.emit ( 'chat-message', { user: userName, message: value} )
     }
 
     return(
         <div className="chat-page">
             <ChatContainer>
                 {
-                    messages.map ( (data, index ) => {
+                    messages.map ( ( data, index ) => {
                         return (
                             <ChatMessage
                                 key={ index }
                                 user={ data.user }
                                 message={ data.message }
+                                newUser={ data.newUser }
                             />
                         )
                     })

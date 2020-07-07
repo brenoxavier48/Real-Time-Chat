@@ -1,0 +1,38 @@
+.login__container{
+    width: 50%;
+    height: 60%;
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.login__title{
+    font-size: 42px;
+}
+
+.login__form{
+    width: 60%;
+    height: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login__input{
+    width: 75%;
+    height: 40%;
+}
+
+.login__button{
+    width: 35%;
+    height: 40%;
+    padding: 5px 15px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

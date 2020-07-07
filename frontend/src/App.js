@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import Chat from './views/Chat'
+import Routes from './routes'
+
 function App() {
   return (
     <div className="app-container">
-      <Chat/>
+      <Routes/>
     </div>
   );
 }
